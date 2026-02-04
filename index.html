@@ -11,7 +11,7 @@
   /* ---- PDF/PRINT SPECIFIC ---- */
   @page {
     size: A4;
-    margin: 12mm 10mm;
+    margin: 8mm 8mm;
   }
   
   @media print {
@@ -39,6 +39,10 @@
     }
     
     .print-btn {
+      display: none !important;
+    }
+    
+    .image-modal {
       display: none !important;
     }
     
@@ -88,7 +92,7 @@
 
   /* ---- HEADER ---- */
   .header {
-    background: linear-gradient(135deg, #ffffff 0%, #fdfdfd 100%);
+    background: #fffcfc;
     color: #070000;  
     padding: 14px 18px;
     margin: -16px -16px 14px -16px;
@@ -104,19 +108,19 @@
     
   }
   .header-title {
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 700;
     margin-bottom: 0px;
   }
   .header-subtitle {
-    font-size: 12px;
+    font-size: 14px;
     opacity: 1;
   }
   .internal-badge {
     position: absolute;
     top: 14px;
     right: 18px;
-    background: rgba(248, 247, 247, 0.95);
+    background: rgba(189, 174, 174, 0.95);
     color: #fff;
     padding: 4px 10px;
     border-radius: 12px;
@@ -134,24 +138,24 @@
     font-size: 10px;
   }
   thead {
-    background: #e0e7ff;
+    background: #f19100;
     color: #010916;
   }
   th {
     padding: 8px 10px;
     text-align: left;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border-bottom: 2px solid #681616;
+    border-bottom: 2px solid #881111;
   }
   th:nth-child(1) { width: 28%; }
   th:nth-child(2) { width: 36%; }
   th:nth-child(3) { width: 36%; }
 
   tbody tr {
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 2px solid #999999;
   }
   tbody tr:hover {
     background: #f8fafc;
@@ -168,13 +172,13 @@
     gap: 6px;
   }
   .port-name {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
-    color: #091744;
+    color: #0c2474;
     margin-bottom: 2px;
   }
   .port-desc {
-    font-size: 9px;
+    font-size: 10px;
     color: #000000;
     line-height: 1.3;
     margin-bottom: 4px;
@@ -184,16 +188,180 @@
     max-width: 150px;
     max-height: 100px;
     height: auto;
-    border: 1px solid #e2e8f0;
+    border: 2px solid #666666;
     border-radius: 4px;
     background: #f8fafc;
     object-fit: contain;
     padding: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .port-img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Image Modal/Zoom */
+  .image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-modal.active {
+    display: flex;
+  }
+
+  .modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .modal-close:hover {
+    color: #ccc;
+  }
+
+  /* Mobile Responsive */
+  @media screen and (max-width: 768px) {
+    body {
+      padding: 10px;
+    }
+
+    .page {
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .header {
+      margin: -10px -10px 10px -10px;
+      padding: 12px 10px;
+    }
+
+    .header-title {
+      font-size: 20px;
+    }
+
+    .header-subtitle {
+      font-size: 12px;
+    }
+
+    .internal-badge {
+      position: static;
+      display: block;
+      margin-top: 8px;
+      width: fit-content;
+    }
+
+    table {
+      font-size: 11px;
+    }
+
+    th {
+      font-size: 12px;
+      padding: 6px 5px;
+    }
+
+    td {
+      padding: 8px 5px;
+    }
+
+    .port-name {
+      font-size: 13px;
+    }
+
+    .port-desc {
+      font-size: 9px;
+    }
+
+    .kp-cell, .id-cell {
+      font-size: 11px;
+    }
+
+    .port-img {
+      max-width: 120px;
+      max-height: 80px;
+    }
+
+    .print-btn {
+      bottom: 15px;
+      right: 15px;
+      padding: 10px 18px;
+      font-size: 13px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .header-title {
+      font-size: 18px;
+    }
+
+    .header-subtitle {
+      font-size: 11px;
+    }
+
+    th {
+      font-size: 11px;
+    }
+
+    .kp-cell, .id-cell {
+      font-size: 10px;
+    }
+
+    /* Stack table on very small screens */
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      margin-bottom: 15px;
+      border: 2px solid #999999;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    td {
+      border: none;
+      position: relative;
+      padding-left: 0;
+    }
+
+    td:before {
+      content: attr(data-label);
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+      color: #091744;
+    }
   }
 
   /* Key Points + How to Identify cells */
   .kp-cell, .id-cell {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.5;
   }
   ul {
@@ -437,6 +605,43 @@
 
 <!-- PRINT BUTTON (hidden when printing) -->
 <button class="print-btn" onclick="window.print()">🖨️ Print / Save PDF</button>
+
+<!-- Image Modal for Zoom -->
+<div class="image-modal" id="imageModal" onclick="closeModal()">
+  <span class="modal-close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+  // Click to zoom functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.port-img');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    
+    images.forEach(img => {
+      img.addEventListener('click', function(e) {
+        e.stopPropagation();
+        modal.classList.add('active');
+        modalImg.src = this.src;
+        document.body.style.overflow = 'hidden';
+      });
+    });
+  });
+
+  function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  // Close modal on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+</script>
 
 </body>
 </html>
