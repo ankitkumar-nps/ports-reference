@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Industrial Communication Ports — Quick Reference</title>
+<title>Industrial Communication Ports - Quick Reference</title>
 <style>
   /* ---- RESET & BASE ---- */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -63,6 +63,22 @@
     
     thead {
       display: table-header-group;
+    }
+    
+    tbody tr {
+      border-bottom: 6px solid #3498db !important;
+    }
+    
+    tbody tr:last-child {
+      border-bottom: none !important;
+    }
+    
+    tbody tr td {
+      border-bottom: 6px solid #3498db !important;
+    }
+    
+    tbody tr:last-child td {
+      border-bottom: none !important;
     }
     
     .footer {
@@ -136,8 +152,7 @@
   /* ---- TABLE ---- */
   table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+    border-collapse: collapse;
     margin-bottom: 12px;
     font-size: 11px;
     border: 1px solid #dee2e6;
@@ -168,14 +183,30 @@
   }
   
   tbody tr {
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 6px solid #3498db;
     background: #fff;
   }
-  tbody tr:hover {
-    background: #f8f9fa;
+  
+  tbody tr:nth-child(even) {
+    background: #f8fafc;
   }
+  
   tbody tr:last-child {
     border-bottom: none;
+  }
+  
+  tbody tr td {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 6px solid #3498db;
+  }
+  
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  tbody tr:hover {
+    background: #f8f9fa;
   }
   td {
     padding: 12px;
@@ -472,7 +503,7 @@
             <td class="kp-cell">
                 <ul>
                     <li>Point-to-point only</li>
-                    <li>Short range (&lt;15 m recommended)</li>
+                    <li>Short range (less than 15 m recommended)</li>
                     <li>Baud rates: 9600, 19200, 115200</li>
                 </ul>
             </td>
@@ -496,15 +527,15 @@
             </td>
             <td class="kp-cell">
                 <ul>
-                    <li>Multi-point: up to 32 devices (247 w/ repeaters)</li>
+                    <li>Multi-point: up to 32 devices (247 with repeaters)</li>
                     <li>Long range up to 1200 m</li>
-                    <li>Differential signaling — noise resistant</li>
+                    <li>Differential signaling - noise resistant</li>
                 </ul>
             </td>
             <td class="id-cell">
                 <ul>
-                    <li>Screw terminal blocks (2–3 wires)</li>
-                    <li>Labeled A/B, +/–, D+/D–, or D0/D1</li>
+                    <li>Twist-lock terminal blocks (2-3 wires)</li>
+                    <li>Labeled A/B, +/-, D+/D-, or D0/D1</li>
                     <li>Sometimes RJ45 on industrial units</li>
                 </ul>
             </td>
@@ -546,7 +577,7 @@
             </td>
             <td class="kp-cell">
                 <ul>
-                    <li>Vibration-resistant screw lock</li>
+                    <li>Vibration-resistant threaded lock</li>
                     <li>Standard in robotics & outdoor automation</li>
                     <li>4, 5, or 8-pin configurations</li>
                 </ul>
@@ -596,9 +627,9 @@
             </td>
             <td class="kp-cell">
                 <ul>
-                    <li>Legacy standard — mainly in test labs</li>
+                    <li>Legacy standard - mainly in test labs</li>
                     <li>Up to 15 devices on one bus</li>
-                    <li>1–8 Mbps | 2 m/device, 20 m total cable</li>
+                    <li>1-8 Mbps | 2 m/device, 20 m total cable</li>
                 </ul>
             </td>
             <td class="id-cell">
