@@ -65,22 +65,6 @@
       display: table-header-group;
     }
     
-    tbody tr {
-      border-bottom: 6px solid #3498db !important;
-    }
-    
-    tbody tr:last-child {
-      border-bottom: none !important;
-    }
-    
-    tbody tr td {
-      border-bottom: 6px solid #3498db !important;
-    }
-    
-    tbody tr:last-child td {
-      border-bottom: none !important;
-    }
-    
     .footer {
       page-break-before: avoid;
       margin-top: 10px !important;
@@ -183,31 +167,21 @@
   }
   
   tbody tr {
-    border-bottom: 6px solid #3498db;
     background: #fff;
   }
+  tbody tr:hover {
+    background: #f8f9fa;
+  }
   
-  tbody tr:nth-child(even) {
-    background: #f8fafc;
+  /* Section separator - thick black border */
+  tbody tr.section-separator {
+    border-bottom: 5px solid #000000 !important;
   }
   
   tbody tr:last-child {
     border-bottom: none;
   }
   
-  tbody tr td {
-    padding-bottom: 20px;
-    padding-top: 20px;
-    border-bottom: 6px solid #3498db;
-  }
-  
-  tbody tr:last-child td {
-    border-bottom: none;
-  }
-  
-  tbody tr:hover {
-    background: #f8f9fa;
-  }
   td {
     padding: 12px;
     vertical-align: top;
@@ -495,7 +469,7 @@
     </thead>
     <tbody>
         <!-- RS232 -->
-                <tr>
+                <tr class="section-separator">
             <td>
                 <div class="port-name">RS232</div>
                 <div class="port-desc">Found in CNCs, lab instrument scales</div>
@@ -520,7 +494,7 @@
         </tr>
 
         <!-- RS485 -->
-                <tr>
+                <tr class="section-separator">
             <td>
                 <div class="port-name">RS485</div>
                 <div class="port-desc">Multi-drop networks used in Modbus RTU</div>
@@ -534,7 +508,7 @@
             </td>
             <td class="id-cell">
                 <ul>
-                    <li>Twist-lock terminal blocks (2-3 wires)</li>
+                    <li>Screw terminal blocks (2-3 wires)</li>
                     <li>Labeled A/B, +/-, D+/D-, or D0/D1</li>
                     <li>Sometimes RJ45 on industrial units</li>
                 </ul>
@@ -545,7 +519,7 @@
         </tr>
 
         <!-- RJ45 (Ethernet) -->
-                <tr>
+                <tr class="section-separator">
             <td>
                 <div class="port-name">RJ45 (Ethernet)</div>
                 <div class="port-desc">Ethernet, Modbus TCP, PROFINET</div>
@@ -570,14 +544,14 @@
         </tr>
 
         <!-- M12 -->
-                <tr>
+                <tr class="section-separator">
             <td>
                 <div class="port-name">M12</div>
                 <div class="port-desc">IP67 dust & water proof found in  Sensors & Ethernet in harsh environments</div>
             </td>
             <td class="kp-cell">
                 <ul>
-                    <li>Vibration-resistant threaded lock</li>
+                    <li>Vibration-resistant screw lock</li>
                     <li>Standard in robotics & outdoor automation</li>
                     <li>4, 5, or 8-pin configurations</li>
                 </ul>
@@ -595,7 +569,7 @@
         </tr>
 
         <!-- USB -->
-                <tr>
+                <tr class="section-separator">
             <td>
                 <div class="port-name">USB</div>
                 <div class="port-desc">Programming, HMI configuration</div>
